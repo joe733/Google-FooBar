@@ -67,9 +67,9 @@ def bool_to_int(matrix):
     :param matrix: A matrix to translate to integers.
     :return: A matrix of integers.
     """
-    for row in range(len(matrix)):
+    for item in matrix:
         for col in range(len(matrix[0])):
-            matrix[row][col] = int(matrix[row][col])
+            item[col] = int(item[col])
     return matrix
 
 

@@ -26,8 +26,8 @@ def answer(l):
     """
     counts = [0] * len(l)
     triplets = 0
-    for product in range(0, len(l)):
-        for factor in range(0, product):
+    for product in range(len(l)):
+        for factor in range(product):
             if l[product] % l[factor] == 0:
                 counts[product] += 1
                 triplets += counts[factor]
