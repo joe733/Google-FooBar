@@ -64,9 +64,9 @@ def bool_to_int(matrix):
     :param matrix: A matrix to translate to integers.
     :return: A matrix of integers.
     """
-    for row in range(len(matrix)):
+    for item in matrix:
         for col in range(len(matrix[0])):
-            matrix[row][col] = int(matrix[row][col])
+            item[col] = int(item[col])
     return matrix
 
 
@@ -121,7 +121,7 @@ def generate_col(col):
         # And we're storing our choices in tuples because tuples are much faster than lists.
         choices = tuple(columns)
     # And then we transpose the solutions because we transposed the original matrix.
-    return tuple([transpose(sol) for sol in choices])
+    return tuple(transpose(sol) for sol in choices)
 
 
 # @profile

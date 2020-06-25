@@ -38,8 +38,7 @@ def matrix2graph(matrix):
     for num in range(1, len(matrix)-1):
         keys.append(num-1)
     keys.append("Bulkhead")
-    graph = dict(zip(keys, matrix))
-    return graph
+    return dict(zip(keys, matrix))
 
 
 # Step 1: Initialize graph
@@ -66,7 +65,7 @@ def relax(node, neighbour, graph, distance, predecessor):
 
 def bellman_ford(matrix, graph, time_limit, source):
     dist, pred = initialize(graph, source)
-    for num in range(len(graph)-1):
+    for _ in range(len(graph)-1):
         for node in graph:
             temp = dict(graph)
             del temp[node]
@@ -80,7 +79,7 @@ def bellman_ford(matrix, graph, time_limit, source):
             nidx = getneighbourindex(neighbour, len(graph))
             if dist[node] + graph[node][nidx] < dist[neighbour]:
                 # We found a negative cycle. Since the door is open forever, free all the bunnies!~
-                return [num for num in range(0, len(graph)-2)]
+                return [num for num in range(len(graph)-2)]
 
     # If we reach this point, it's time to employ floyd and also enumerate path lengths.
     spaths = floyd(matrix)
